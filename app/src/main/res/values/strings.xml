@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Timetable for HSE FE</string>
+    <string name="timetable_student">Расписание для студентов</string>
+    <string name="timetable_teacher">Расписание для преподавателей</string>
+</resources>
