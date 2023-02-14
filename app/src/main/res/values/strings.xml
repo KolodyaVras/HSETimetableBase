@@ -2,4 +2,16 @@
     <string name="app_name">Timetable for HSE FE</string>
     <string name="timetable_student">Расписание для студентов</string>
     <string name="timetable_teacher">Расписание для преподавателей</string>
+    <string name="button3">Расписание на день</string>
+    <string name="button4">Расписание на неделю</string>
+    <string name = "textView"> Выберите преподавателя:</string>>
+    <string name="logo">Картинка</string>
+    <string name = "textView2">Сейчас: 12:00</string>
+    <string name = "textView3">Идет пара/Нет пар</string>
+    <string name = "textView4">Дисциплина</string>
+    <string name = "textView5">Кабинет</string>
+    <string name = "textView6">Корпус</string>
+    <string name = "textView7">Преподаватель</string>
+    <string name = "textView1">Выберите группу:</string>
+    <string name = "groupList">Выберите группу:</string>>
 </resources>

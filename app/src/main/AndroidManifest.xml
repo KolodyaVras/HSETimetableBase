@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimetableHseBase">
         <activity
+            android:name=".TeacherActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudentActivity"
+            android:exported="true" />
+        <activity
             android:name=".TimetableActivity"
             android:exported="true">
             <intent-filter>
