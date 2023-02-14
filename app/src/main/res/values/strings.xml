@@ -14,4 +14,11 @@
     <string name = "textView7">Преподаватель</string>
     <string name = "textView1">Выберите группу:</string>
     <string name = "groupList">Выберите группу:</string>>
+    <string name="settings">Настройки</string>
+    <string name="doPhoto">Сделать фото</string>
+    <string name="save">Сохранить</string>
+    <string name="brightness">Освещение</string>
+    <string name="gyroscope">Гироскоп:</string>
+    <string name="accelerometer">Акселерометр:</string>
+    <string name="motion">Датчик движения:</string>
 </resources>

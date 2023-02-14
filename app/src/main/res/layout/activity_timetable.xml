@@ -8,6 +8,7 @@
 
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="296dp"
         android:layout_height="745dp"
         android:layout_marginBottom="44dp"
@@ -44,5 +45,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.953" />
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="148dp"
+        android:layout_height="47dp"
+        android:text="@string/settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.805" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

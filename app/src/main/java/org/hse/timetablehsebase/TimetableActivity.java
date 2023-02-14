@@ -12,12 +12,14 @@ public class TimetableActivity extends AppCompatActivity {
 
     public Button btnStudent;
     public Button btnTeacher;
+    public Button btnSettings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
         btnStudent = (Button) findViewById(R.id.btnStudent);
         btnTeacher = (Button) findViewById(R.id.btnTeacher);
+        btnSettings = (Button) findViewById(R.id.btnSettings);
         btnStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,7 +32,10 @@ public class TimetableActivity extends AppCompatActivity {
                 showTeacher();
             }
         });
-
+        btnSettings.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){showSettings();}
+        });
     }
 
     public void btnStudentOnClick(View view) {
@@ -51,6 +56,11 @@ public class TimetableActivity extends AppCompatActivity {
     }
     private void showTeacher(){
         Intent intent = new Intent(this, TeacherActivity.class);
+        startActivity(intent);
+    }
+
+    private void showSettings(){
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 }
