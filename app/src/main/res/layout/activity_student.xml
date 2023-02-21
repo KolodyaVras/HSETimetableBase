@@ -108,22 +108,21 @@
 
             <Button
                 android:id="@+id/button5"
-                style="@style/ButtonStyle"
-                android:layout_width="181dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="156dp"
+                android:layout_height="56dp"
                 android:gravity="center"
                 android:text="@string/button3"
                 tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/button6"
-                style="@style/ButtonStyle"
-                android:layout_width="183dp"
-                android:layout_height="53dp"
                 android:layout_marginTop="10dp"
+                android:layout_width="172dp"
+                android:layout_height="57dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center|center_vertical"
                 android:lines="2"
                 android:text="@string/button4"
