@@ -22,9 +22,13 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -40,6 +44,8 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity implements SensorEventListener {
@@ -48,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity implements SensorEventLi
     private static final int REQUEST_TAKE_PHOTO = 1;
     private ImageView imageView;
     private static final int MY_CAMERA_REQUEST_CODE = 100;
-    String FILE_AUTHORITY = "com.example.project3";
+    String FILE_AUTHORITY = "org.hse.timetablehsebase";
 
     private String folderToSave; // папка с кешем приложения
     private final String imgSaveName = "myImage.jpg";
@@ -93,6 +99,28 @@ public class SettingsActivity extends AppCompatActivity implements SensorEventLi
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString(inputNameInSettings, nameInput.getText().toString()).apply();
         });
+
+        SensorManager mgr;
+        Sensor sensor;
+
+        mgr = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
+        sensor = mgr.getDefaultSensor(Sensor.TYPE_LIGHT);
+        List<Sensor> deviceSensors = mgr.getSensorList(Sensor.TYPE_ALL);
+
+        Spinner spinner = (Spinner) findViewById(R.id.sensorslist);
+        ArrayAdapter<?> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, deviceSensors);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        /*List<Sensor> sensorList = mgr.getSensorList(Sensor.TYPE_ALL);
+        StringBuilder strBuilder = new StringBuilder();
+
+        for(Sensor s: sensorList){
+            strBuilder.append(s.getName()+"\n");
+        }
+
+        txtList.setVisibility(View.VISIBLE);
+        txtList.setText(strBuilder);*/
     }
 
     public void onTakePhotoClicked(View v) {
@@ -129,7 +157,6 @@ public class SettingsActivity extends AppCompatActivity implements SensorEventLi
         File file = new File(pathPart1, pathPart2);
         return FileProvider.getUriForFile(Objects.requireNonNull(getApplicationContext()),
                 BuildConfig.APPLICATION_ID + ".provider", file);
-        //return FileProvider.getUriForFile(this, FILE_AUTHORITY, file);
     }
 
     public void openSomeActivityForResult(Intent intent) {
@@ -142,7 +169,6 @@ public class SettingsActivity extends AppCompatActivity implements SensorEventLi
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
-                        // интент съел путь и сохранил туда фото
                         photoView.setImageURI(GetUriForPath(folderToSave, imgSaveName));
                     }
                 }
@@ -248,7 +274,6 @@ public class SettingsActivity extends AppCompatActivity implements SensorEventLi
         sensorManager.registerListener(this, motionSensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         if(preferences.contains(inputNameInSettings)){
-            // гив ми поле для текста имени
             String text = preferences.getString(inputNameInSettings, "");
 
             nameInput.setText(text);
